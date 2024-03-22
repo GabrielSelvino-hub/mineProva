@@ -66,4 +66,13 @@ function generateTest() {
     divQuestions.appendChild(checkButton);
 }
 
+
+document.getElementById('sumir').addEventListener('click', function() {
+    var campoTexto = document.getElementById('campoTexto');
+    if (campoTexto.style.display === 'none') {
+        campoTexto.style.display = 'block';
+    } else {
+        campoTexto.style.display = 'none';
+    }
+});
 generateTest();
