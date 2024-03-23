@@ -1,7 +1,12 @@
+
+const checkButton = document.createElement('button');
+
 function generateTest() {
     const divQuestions = document.getElementById('questions');
     const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = '';
     var contPer = 0;
+    document.getElementById
     document.getElementById('result').innerHTML = '';
     document.getElementById('questions').innerHTML = '';
 
@@ -26,12 +31,11 @@ function generateTest() {
                 divQuestion.innerHTML += `<input type="radio" name="${q}" id="${cont++}" value="${option.trim()}">${option}<br>`;
             }
         });
-        contPer++
+        contPer++;
         perguntas.push({ pergunta: q, resposta: resposta });
         divQuestions.appendChild(divQuestion);
     });
 
-    const checkButton = document.createElement('button');
     checkButton.textContent = "Verificar Respostas";
     checkButton.addEventListener('click', () => {
         resultDiv.innerHTML = '';
@@ -60,7 +64,10 @@ function generateTest() {
         } else {
             resultDiv.innerHTML += `<br><br>Você errou ${contRes} Perguntas`;
         }
+        
         resultDiv.innerHTML += `<br><br>Você tem ${contPer++} Perguntas`;
+        
+        contPer = 0;
     });
 
     divQuestions.appendChild(checkButton);
@@ -74,4 +81,9 @@ document.getElementById('sumir').addEventListener('click', function() {
         campoTexto.style.display = 'none';
     }
 });
+
 generateTest();
+
+checkButton.addEventListener('click', () => {
+    checkButton.disabled = true;
+});
